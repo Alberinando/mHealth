@@ -1,4 +1,4 @@
-import {Image, StatusBar, View, Text} from 'react-native';
+import {Image, StatusBar, View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Style from './Style';
 import Button from '../../../Components/Button/Button';
@@ -18,6 +18,10 @@ function Monitoring(): React.JSX.Element {
     navigation.navigate('Settings');
   };
 
+  const handlePressBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <>
       <View style={Style.Container}>
@@ -27,12 +31,16 @@ function Monitoring(): React.JSX.Element {
           barStyle="dark-content"
           translucent={true}
         />
-        <Ionicons
-          name={'arrow-back'}
-          color={Colors.TitleText}
-          size={30}
-          style={Style.BackButton}
-        />
+        <TouchableOpacity
+          onPress={handlePressBack}
+          style={Style.ButtonContainer}>
+          <Ionicons
+            name={'arrow-back'}
+            color={Colors.TitleText}
+            size={30}
+            style={Style.BackButton}
+          />
+        </TouchableOpacity>
         <View style={Style.View}>
           <Image
             source={require('../../../Assets/Img/LogoSAMU.png')}

@@ -50,6 +50,13 @@ const Style = StyleSheet.create({
     fontWeight: 'bold',
   },
   BackButton: {
+    width: width * 0.2,
+    height: height * 0.05,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: height * -0.00009999,
+  },
+  ButtonContainer: {
     position: 'absolute',
     top: 0,
     left: 0,
