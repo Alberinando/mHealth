@@ -1,15 +1,17 @@
 export default {
   TopBackground: '#031C3D',
   TopBackground2: '#F07E19',
+  TopBackground3: '#FFFFFF',
   ButtonSubmmit: '#D32224',
   ButtonOptions: '#031C3D',
   Input: 'rgba(26, 108, 248,0.2)',
   Background: '#ecf0f1',
   Placeholder: '#8F8E8E',
-  LabelText: '#010C1B',
+  LabelText: '#8F8E8E',
   TitleText: '#010C1B',
   TextmHealt: '#F07E19',
   TextmHealt2: '#F6F6F6',
+  TextmHealt3: '#D32224',
   BackgroundOptions1: '#D32224',
   BackgroundOptions2: '#031C3D',
 };

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "872136658518",
+    "project_id": "mhealth-fd9c3",
+    "storage_bucket": "mhealth-fd9c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872136658518:android:4877ccf31b0d03ef54b5f7",
+        "android_client_info": {
+          "package_name": "com.mhealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPG-2_mTRgo9RMf39aTyWRAtb88E5g6tQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
