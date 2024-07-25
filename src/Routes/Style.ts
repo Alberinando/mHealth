@@ -5,6 +5,8 @@ const Style = StyleSheet.create({
   loading: {
     flex: 1,
     backgroundColor: Colors.TopBackground,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

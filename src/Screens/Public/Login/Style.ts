@@ -55,8 +55,8 @@ const Style = StyleSheet.create({
     marginTop: 20,
   },
   LogoSamu: {
-    width: width * 0.315,
-    height: height * 0.145,
+    width: 120,
+    height: 120,
   },
   TextLogoUp: {
     textAlign: 'left',

@@ -7,6 +7,10 @@ type DetailsScreenNavigationProp = NavigationProp<{
   Intervention: undefined;
   Settings: undefined;
   Monitoring: undefined;
+  Identification: undefined;
+  Team: undefined;
+  RescueUnit: undefined;
+  PointsSupport: undefined;
 }>;
 
 export default DetailsScreenNavigationProp;

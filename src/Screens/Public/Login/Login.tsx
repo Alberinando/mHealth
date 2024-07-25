@@ -25,23 +25,30 @@ function Login(): React.JSX.Element {
   };
 
   async function handleLogin() {
-    await auth()
-      .signInWithEmailAndPassword(text, password)
-      .catch(error => {
-        console.log(error);
-        if (error.code === 'auth/invalid-email') {
-          Alert.alert('Alerta', 'O endereço de e-mail não é válido.');
-        }
-        if (error.code === 'auth/invalid-email-verified') {
-          Alert.alert('Alerta', 'O e-mail é inválido.');
-        }
-        if (error.code === 'auth/weak-password') {
-          Alert.alert('Alerta', 'A senha é muito fraca.');
-        }
-        if (error.code === 'auth/invalid-credential') {
-          Alert.alert('Alerta', 'A credencial expirou ou está mal formada.');
-        }
-      });
+    if (text !== '' && password !== '') {
+      await auth()
+        .signInWithEmailAndPassword(text, password)
+        .catch(error => {
+          console.log(error);
+          if (error.code === 'auth/invalid-email') {
+            Alert.alert('Alerta', 'O endereço de e-mail não é válido.');
+          }
+          if (error.code === 'auth/invalid-email-verified') {
+            Alert.alert('Alerta', 'O e-mail é inválido.');
+          }
+          if (error.code === 'auth/weak-password') {
+            Alert.alert('Alerta', 'A senha é muito fraca.');
+          }
+          if (error.code === 'auth/invalid-credential') {
+            Alert.alert('Alerta', 'A credencial expirou ou está mal formada.');
+          }
+          if (error.code === 'auth/network-request-failed') {
+            Alert.alert('Alerta', 'Sem conexão com a internet');
+          }
+        });
+    } else {
+      Alert.alert('Alerta', 'Preencha os dados');
+    }
   }
 
   return (
@@ -81,6 +88,7 @@ function Login(): React.JSX.Element {
                   placeholderTextColor={Colors.Placeholder}
                   value={text}
                   style={Style.Input}
+                  autoCapitalize="none"
                 />
               </View>
               <View style={Style.InputContainer}>
@@ -93,6 +101,7 @@ function Login(): React.JSX.Element {
                   onChangeText={onChangePassword}
                   value={password}
                   style={Style.Input}
+                  autoCapitalize="none"
                 />
               </View>
               <TouchableOpacity

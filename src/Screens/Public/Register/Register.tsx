@@ -58,30 +58,40 @@ function Register(): React.JSX.Element {
   };
 
   function SignUp() {
-    auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        addData();
-        handleLogin();
-      })
-      .catch(error => {
-        console.log(error);
-        if (error.code === 'auth/email-already-in-use') {
-          Alert.alert(
-            'Alerta',
-            'Já existi uma conta com o endereço de email fornecido.',
-          );
-        }
-        if (error.code === 'auth/invalid-email') {
-          Alert.alert('Alerta', 'O endereço de e-mail não é válido.');
-        }
-        if (error.code === 'auth/invalid-email-verified') {
-          Alert.alert('Alerta', 'O e-mail é inválido.');
-        }
-        if (error.code === 'auth/weak-password') {
-          Alert.alert('Alerta', 'A senha é muito fraca.');
-        }
-      });
+    if (
+      name !== '' &&
+      email !== '' &&
+      password !== '' &&
+      coren !== '' &&
+      office !== ''
+    ) {
+      auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          addData();
+          handleLogin();
+        })
+        .catch(error => {
+          console.log(error);
+          if (error.code === 'auth/email-already-in-use') {
+            Alert.alert(
+              'Alerta',
+              'Já existi uma conta com o endereço de email fornecido.',
+            );
+          }
+          if (error.code === 'auth/invalid-email') {
+            Alert.alert('Alerta', 'O endereço de e-mail não é válido.');
+          }
+          if (error.code === 'auth/invalid-email-verified') {
+            Alert.alert('Alerta', 'O e-mail é inválido.');
+          }
+          if (error.code === 'auth/weak-password') {
+            Alert.alert('Alerta', 'A senha é muito fraca.');
+          }
+        });
+    } else {
+      Alert.alert('Alerta', 'Preencha os campos');
+    }
   }
 
   return (
@@ -110,7 +120,7 @@ function Register(): React.JSX.Element {
               <Text style={Style.Title}>Crie sua conta</Text>
               <View style={Style.InputContainer}>
                 <Text style={Style.Label}>
-                  Nome<Text>*</Text>
+                  Nome<Text style={Style.Mandatory}>*</Text>
                 </Text>
                 <TextInput
                   placeholder="Insira seu Nome"
@@ -123,7 +133,7 @@ function Register(): React.JSX.Element {
               </View>
               <View style={Style.InputContainer}>
                 <Text style={Style.Label}>
-                  E-mail<Text>*</Text>
+                  E-mail<Text style={Style.Mandatory}>*</Text>
                 </Text>
                 <TextInput
                   placeholder="Insira seu E-mail"
@@ -137,7 +147,7 @@ function Register(): React.JSX.Element {
               </View>
               <View style={Style.InputContainer}>
                 <Text style={Style.Label}>
-                  Senha<Text>*</Text>
+                  Senha<Text style={Style.Mandatory}>*</Text>
                 </Text>
                 <TextInput
                   placeholder="Insira sua Senha"
@@ -151,7 +161,7 @@ function Register(): React.JSX.Element {
               </View>
               <View style={Style.InputContainer}>
                 <Text style={Style.Label}>
-                  Conselho de classe<Text>*</Text>
+                  Conselho de classe<Text style={Style.Mandatory}>*</Text>
                 </Text>
                 <TextInput
                   placeholder="Insira seu conselho de classe"

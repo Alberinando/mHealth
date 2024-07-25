@@ -9,7 +9,7 @@ function Home(): React.JSX.Element {
   const navigation = useNavigation<DetailsScreenNavigationProp>();
 
   const handlePressSettings = () => {
-    navigation.navigate('Settings');
+    navigation.navigate('Intervention');
   };
 
   const handlePressMonitoring = () => {
