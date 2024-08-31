@@ -65,12 +65,14 @@ const Style = StyleSheet.create({
     color: '#000000',
   },
   Button: {
-    backgroundColor: Colors.ButtonSubmmit,
-    width: '90%',
+    width: '20%',
     alignItems: 'center',
     padding: 13,
     borderRadius: 8,
-    marginTop: 20,
+    marginTop: 5,
+    alignContent: 'flex-end',
+    justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
   },
   ButtonText: {
     fontWeight: '800',
@@ -86,6 +88,9 @@ const Style = StyleSheet.create({
     color: Colors.TextmHealt,
     fontWeight: 'bold',
     fontSize: 16.4,
+  },
+  Mandatory: {
+    color: Colors.TextmHealt3,
   },
 });
 

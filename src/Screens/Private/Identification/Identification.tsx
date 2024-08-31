@@ -57,7 +57,7 @@ function Identification(): React.JSX.Element {
           <Button text={'Unidade de Resgate'} Prop={handlePressRescueUnit} />
           <Button text={'Ponto de Apoio'} Prop={handlePressPointsSupport} />
         </View>
-        <Text style={Style.text}>MHealth</Text>
+        <Text style={Style.text}>LogSAMURN</Text>
       </View>
     </>
   );

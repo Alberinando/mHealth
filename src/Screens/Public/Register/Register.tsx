@@ -194,7 +194,7 @@ function Register(): React.JSX.Element {
                 <Text style={Style.ButtonText}>Entrar</Text>
               </TouchableOpacity>
             </View>
-            <Text style={Style.TextFooter}>mHealth</Text>
+            <Text style={Style.TextFooter}>LogSAMURN</Text>
           </ScrollView>
         </View>
       </View>

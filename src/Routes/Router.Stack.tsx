@@ -8,6 +8,11 @@ import Identification from '../Screens/Private/Identification/Identification';
 import Team from '../Screens/Private/Team/Team';
 import RescueUnit from '../Screens/Private/RescueUnit/RescueUnit';
 import PointsSupport from '../Screens/Private/PointsSupport/PointsSupport';
+import IncidentReport from '../Screens/Private/IncidentReport/IncidentReport';
+import IncidentReportContinuity from '../Screens/Private/IncidentReportContinuity/IncidentReportContinuity';
+import NatureService from '../Screens/Private/NatureService/NatureService';
+import PatientHistory from '../Screens/Private/PatientHistory/PatientHistory';
+import PatientHistoryContinuity from '../Screens/Private/PatientHistoryContinuity/PatientHistoryContinuity';
 
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -52,6 +57,31 @@ export function StackRoutes() {
       <Screen
         name="PointsSupport"
         component={PointsSupport}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="IncidentReport"
+        component={IncidentReport}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="IncidentReportContinuity"
+        component={IncidentReportContinuity}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="NatureService"
+        component={NatureService}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="PatientHistory"
+        component={PatientHistory}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="PatientHistoryContinuity"
+        component={PatientHistoryContinuity}
         options={{headerShown: false}}
       />
     </Navigator>

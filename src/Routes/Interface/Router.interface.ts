@@ -11,6 +11,11 @@ type DetailsScreenNavigationProp = NavigationProp<{
   Team: undefined;
   RescueUnit: undefined;
   PointsSupport: undefined;
+  IncidentReport: undefined;
+  IncidentReportContinuity: undefined;
+  NatureService: undefined;
+  PatientHistory: undefined;
+  PatientHistoryContinuity: undefined;
 }>;
 
 export default DetailsScreenNavigationProp;

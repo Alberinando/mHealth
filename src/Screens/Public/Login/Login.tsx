@@ -66,8 +66,7 @@ function Login(): React.JSX.Element {
             style={Style.LogoSamu}
           />
           <View>
-            <Text style={Style.TextLogoUp}>mHealth</Text>
-            <Text style={Style.TextLogoDown}>SAMU</Text>
+            <Text style={Style.TextLogoUp}>LogSAMURN</Text>
             <Text style={Style.TextLogoDownSamu}>RN 192</Text>
           </View>
         </View>

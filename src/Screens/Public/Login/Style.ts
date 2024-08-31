@@ -64,7 +64,6 @@ const Style = StyleSheet.create({
     fontSize: 23.6,
     color: Colors.TextmHealt,
     fontWeight: 'bold',
-    marginBottom: '-8%',
   },
   TextLogoDown: {
     textAlign: 'left',

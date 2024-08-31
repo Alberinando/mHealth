@@ -10,8 +10,8 @@ import Colors from '../../../Theme/Colors';
 function Intervention(): React.JSX.Element {
   const navigation = useNavigation<DetailsScreenNavigationProp>();
 
-  const handlePressSettingsReport = () => {
-    navigation.navigate('Settings');
+  const handlePressIncidentReport = () => {
+    navigation.navigate('IncidentReport');
   };
 
   const handlePressIdentification = () => {
@@ -52,14 +52,14 @@ function Intervention(): React.JSX.Element {
           <Button text={'Identificação'} Prop={handlePressIdentification} />
           <Button
             text={'Boletim de Atendimento'}
-            Prop={handlePressSettingsReport}
+            Prop={handlePressIncidentReport}
           />
           <Button
             text={'Checklist da Unidade de Resgate'}
-            Prop={handlePressSettingsReport}
+            Prop={handlePressIncidentReport}
           />
         </View>
-        <Text style={Style.text}>MHealth</Text>
+        <Text style={Style.text}>LogSAMURN</Text>
       </View>
     </>
   );

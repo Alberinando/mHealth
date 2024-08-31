@@ -55,7 +55,7 @@ function Monitoring(): React.JSX.Element {
             Prop={handlePressSettings}
           />
         </View>
-        <Text style={Style.text}>MHealth</Text>
+        <Text style={Style.text}>LogSAMURN</Text>
       </View>
     </>
   );

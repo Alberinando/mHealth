@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StatusBar,
   View,
@@ -8,6 +8,7 @@ import {
   Platform,
   ScrollView,
   TextInput,
+  Alert,
 } from 'react-native';
 import Style from './Style';
 import {useNavigation} from '@react-navigation/native';
@@ -15,6 +16,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import DetailsScreenNavigationProp from '../../../Routes/Interface/Router.interface';
 import Colors from '../../../Theme/Colors';
 import Checkbox from '../../../Components/CheckBox/Checkbox/Checkbox';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function RescueUnit(): React.JSX.Element {
   const navigation = useNavigation<DetailsScreenNavigationProp>();
@@ -23,6 +25,39 @@ function RescueUnit(): React.JSX.Element {
   const [usb, setUsb] = useState('');
   const [vir, setVir] = useState('');
   const [aircraft, setAircraft] = useState('');
+
+  useEffect(() => {
+    const loadStoredData = async () => {
+      try {
+        const storedOption = await AsyncStorage.getItem('selectedOption');
+        const storedNumber = await AsyncStorage.getItem('selectedNumber');
+
+        if (storedOption && storedNumber) {
+          setSelectedOption(storedOption);
+          switch (storedOption) {
+            case 'USA':
+              setUsa(storedNumber);
+              break;
+            case 'USB':
+              setUsb(storedNumber);
+              break;
+            case 'VIR':
+              setVir(storedNumber);
+              break;
+            case 'AERONAVE':
+              setAircraft(storedNumber);
+              break;
+            default:
+              break;
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load stored data', error);
+      }
+    };
+
+    loadStoredData();
+  }, []);
 
   const handlePressBack = () => {
     navigation.goBack();
@@ -46,32 +81,69 @@ function RescueUnit(): React.JSX.Element {
     setSelectedOption(option);
     // Clear other fields and update the selected field
     switch (option) {
-    case 'USA':
-      setUsa(text);
-      setUsb('');
-      setVir('');
-      setAircraft('');
-      break;
-    case 'USB':
-      setUsa('');
-      setUsb(text);
-      setVir('');
-      setAircraft('');
-      break;
-    case 'VIR':
-      setUsa('');
-      setUsb('');
-      setVir(text);
-      setAircraft('');
-      break;
-    case 'AERONAVE':
-      setUsa('');
-      setUsb('');
-      setVir('');
-      setAircraft(text);
-      break;
-    default:
-      break;
+      case 'USA':
+        setUsa(text);
+        setUsb('');
+        setVir('');
+        setAircraft('');
+        break;
+      case 'USB':
+        setUsa('');
+        setUsb(text);
+        setVir('');
+        setAircraft('');
+        break;
+      case 'VIR':
+        setUsa('');
+        setUsb('');
+        setVir(text);
+        setAircraft('');
+        break;
+      case 'AERONAVE':
+        setUsa('');
+        setUsb('');
+        setVir('');
+        setAircraft(text);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSave = async () => {
+    try {
+      if (selectedOption) {
+        let number = '';
+        switch (selectedOption) {
+          case 'USA':
+            number = usa;
+            break;
+          case 'USB':
+            number = usb;
+            break;
+          case 'VIR':
+            number = vir;
+            break;
+          case 'AERONAVE':
+            number = aircraft;
+            break;
+          default:
+            break;
+        }
+        if (number !== '') {
+          let Date = {
+            Type: selectedOption,
+            Number: number,
+          };
+          await AsyncStorage.setItem('Rescue', JSON.stringify(Date));
+          navigation.navigate('PointsSupport');
+        }
+      } else {
+        Alert.alert('Error', 'Please select an option');
+      }
+    } catch (error) {
+      console.error('Failed to save data', error);
+      Alert.alert('Error', 'Failed to save data');
     }
   };
 
@@ -171,12 +243,16 @@ function RescueUnit(): React.JSX.Element {
                 editable={selectedOption === 'AERONAVE'}
               />
             </View>
-            <TouchableOpacity style={Style.Button}>
-              <Text style={Style.ButtonText}>Salvar</Text>
+            <TouchableOpacity style={Style.Button} onPress={handleSave}>
+              <Ionicons
+                name={'arrow-forward'}
+                color={Colors.TitleText}
+                size={30}
+              />
             </TouchableOpacity>
           </View>
           <View style={Style.TextFooterContainer}>
-            <Text style={Style.TextFooter}>mHealth</Text>
+            <Text style={Style.TextFooter}>LogSAMURN</Text>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

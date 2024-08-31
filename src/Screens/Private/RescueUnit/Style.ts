@@ -67,12 +67,14 @@ const Style = StyleSheet.create({
     marginTop: '2%',
   },
   Button: {
-    backgroundColor: Colors.ButtonSubmmit,
-    width: '90%',
+    width: '20%',
     alignItems: 'center',
     padding: 13,
     borderRadius: 8,
-    marginTop: 20,
+    marginTop: 5,
+    alignContent: 'flex-end',
+    justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
   },
   ButtonText: {
     fontWeight: '800',

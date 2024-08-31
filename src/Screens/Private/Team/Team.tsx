@@ -12,6 +12,7 @@ import React, {useState} from 'react';
 import Style from './Style';
 import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import DetailsScreenNavigationProp from '../../../Routes/Interface/Router.interface';
 import Colors from '../../../Theme/Colors';
 
@@ -24,6 +25,23 @@ function Team(): React.JSX.Element {
 
   const handlePressBack = () => {
     navigation.goBack();
+  };
+
+  const storeData = async () => {
+    try {
+      if (name !== '' && nurse !== '' && conductor !== '') {
+        let Date = {
+          Nome: name,
+          Enfermeiro: nurse,
+          Medico: doctor,
+          Motorista: conductor,
+        };
+        await AsyncStorage.setItem('Equipe', JSON.stringify(Date));
+        navigation.navigate('RescueUnit');
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -53,7 +71,9 @@ function Team(): React.JSX.Element {
         <ScrollView contentContainerStyle={Style.ScrollViewContent}>
           <View style={Style.Form}>
             <View style={Style.InputContainer}>
-              <Text style={Style.Label}>Técnico de enfermagem</Text>
+              <Text style={Style.Label}>
+                Técnico de enfermagem<Text style={Style.Mandatory}>*</Text>
+              </Text>
               <TextInput
                 placeholder="Insira o Nome"
                 keyboardType="default"
@@ -64,7 +84,9 @@ function Team(): React.JSX.Element {
               />
             </View>
             <View style={Style.InputContainer}>
-              <Text style={Style.Label}>Enfermeiro</Text>
+              <Text style={Style.Label}>
+                Enfermeiro<Text style={Style.Mandatory}>*</Text>
+              </Text>
               <TextInput
                 placeholder="Insira o Nome"
                 keyboardType="default"
@@ -86,7 +108,9 @@ function Team(): React.JSX.Element {
               />
             </View>
             <View style={Style.InputContainer}>
-              <Text style={Style.Label}>Condutor</Text>
+              <Text style={Style.Label}>
+                Condutor<Text style={Style.Mandatory}>*</Text>
+              </Text>
               <TextInput
                 placeholder="Insira o Nome"
                 keyboardType="default"
@@ -96,14 +120,14 @@ function Team(): React.JSX.Element {
                 style={Style.Input}
               />
             </View>
-            <TouchableOpacity style={Style.Button}>
-              <Text style={Style.ButtonText}>Salvar</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={Style.TextFooterContainer}>
-            <Text style={Style.TextFooter}>mHealth</Text>
           </View>
         </ScrollView>
+        <TouchableOpacity onPress={storeData} style={Style.Button}>
+          <Ionicons name={'arrow-forward'} color={Colors.TitleText} size={30} />
+        </TouchableOpacity>
+        <View style={Style.TextFooterContainer}>
+          <Text style={Style.TextFooter}>LogSAMURN</Text>
+        </View>
       </KeyboardAvoidingView>
     </>
   );

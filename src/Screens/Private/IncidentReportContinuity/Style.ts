@@ -23,7 +23,7 @@ const Style = StyleSheet.create({
   },
   NameScreen: {
     backgroundColor: Colors.TopBackground,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     height: 60,
     width: '65%',
@@ -35,20 +35,23 @@ const Style = StyleSheet.create({
     color: Colors.TopBackground3,
     fontWeight: 'bold',
     fontSize: 18,
+    marginLeft: '5%',
   },
   ScrollViewContent: {
     flexGrow: 1,
-    alignItems: 'center',
-    paddingBottom: 50,
-    marginTop: '5%',
   },
   Form: {
     width: '100%',
-    alignItems: 'flex-start',
-    paddingLeft: '10%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '10%',
   },
   InputContainer: {
     width: '90%',
+    marginBottom: 15,
+  },
+  InputContainerUP: {
+    width: '55%',
     marginBottom: 15,
   },
   Label: {
@@ -59,34 +62,35 @@ const Style = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: '2%',
   },
+  LabelOptions: {
+    color: Colors.LabelText,
+    fontWeight: '400',
+    fontSize: 14,
+    marginBottom: 5,
+    alignSelf: 'flex-start',
+    marginTop: '2%',
+    paddingLeft: '5%',
+  },
   Input: {
     backgroundColor: Colors.Input,
     borderRadius: 8,
-    padding: 10,
+    paddingLeft: 15,
     color: '#000000',
-    width: '80%',
+    width: '100%',
   },
-  InputPoint: {
+  InputUp: {
     backgroundColor: Colors.Input,
     borderRadius: 8,
-    padding: 10,
     color: '#000000',
-    width: '80%',
-    marginTop: '3%',
+    width: '100%',
   },
   Button: {
     width: '20%',
     alignItems: 'center',
     padding: 13,
     borderRadius: 8,
-    marginTop: 5,
-    alignContent: 'flex-end',
-    justifyContent: 'flex-end',
     alignSelf: 'flex-end',
-  },
-  ButtonText: {
-    fontWeight: '800',
-    color: Colors.TextmHealt2,
+    justifyContent: 'flex-end',
   },
   TextFooterContainer: {
     position: 'absolute',
@@ -99,26 +103,49 @@ const Style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16.4,
   },
-  InputText: {
-    backgroundColor: Colors.Input,
-    borderRadius: 8,
-    paddingLeft: 15,
-    color: '#000000',
+  InputContainerContext: {
+    flexDirection: 'row',
+    paddingHorizontal: '5%',
+    alignSelf: 'flex-start',
   },
-  itemStyle: {
-    borderRadius: 8,
+  LogoAPI: {
+    width: 75,
+    height: 75,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: '5%',
+    marginLeft: '5%',
   },
-  placeholderStyle: {
-    color: Colors.Placeholder,
+  Calendar: {
+    flexDirection: 'row',
   },
-  selectedText: {
-    color: Colors.TitleText,
+  CalendarInput: {
+    width: '100%',
   },
-  containerStyle: {
-    borderRadius: 8,
-    marginTop: '0.1%',
-    backgroundColor: Colors.Input,
-    paddingHorizontal: '2%',
+  InputButton: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    right: 15,
+  },
+  DateTimePicker: {
+    flex: 1,
+    backgroundColor: Colors.TopBackground,
+    elevation: 5,
+    borderRadius: 10,
+    width: width * 0.9,
+    alignItems: 'center',
+    zIndex: 1,
+  },
+  Mandatory: {
+    color: Colors.TextmHealt3,
+  },
+  Options: {
+    alignSelf: 'flex-start',
+    paddingLeft: '5%',
+    marginTop: '3%',
   },
 });
 

@@ -34,7 +34,7 @@ function Home(): React.JSX.Element {
         <View style={Style.ContainerEnd}>
           <Button text={'Intervenção'} Prop={handlePressSettings} />
           <Button text={'Monitoramento'} Prop={handlePressMonitoring} />
-          <Text style={Style.text}>mHealth</Text>
+          <Text style={Style.text}>LogSAMURN</Text>
         </View>
       </View>
     </>
