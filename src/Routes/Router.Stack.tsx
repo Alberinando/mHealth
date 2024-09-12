@@ -13,6 +13,8 @@ import IncidentReportContinuity from '../Screens/Private/IncidentReportContinuit
 import NatureService from '../Screens/Private/NatureService/NatureService';
 import PatientHistory from '../Screens/Private/PatientHistory/PatientHistory';
 import PatientHistoryContinuity from '../Screens/Private/PatientHistoryContinuity/PatientHistoryContinuity';
+import GestationalHistory from '../Screens/Private/GestationalHistory/GestationalHistory';
+import PhysicalExamAirways from '../Screens/Private/PhysicalExam(Airways)/PhysicalExamAirways';
 
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -82,6 +84,16 @@ export function StackRoutes() {
       <Screen
         name="PatientHistoryContinuity"
         component={PatientHistoryContinuity}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="GestationalHistory"
+        component={GestationalHistory}
+        options={{headerShown: false}}
+      />
+      <Screen
+        name="PhysicalExamAirways"
+        component={PhysicalExamAirways}
         options={{headerShown: false}}
       />
     </Navigator>

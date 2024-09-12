@@ -16,6 +16,8 @@ type DetailsScreenNavigationProp = NavigationProp<{
   NatureService: undefined;
   PatientHistory: undefined;
   PatientHistoryContinuity: undefined;
+  GestationalHistory: undefined;
+  PhysicalExamAirways: undefined;
 }>;
 
 export default DetailsScreenNavigationProp;

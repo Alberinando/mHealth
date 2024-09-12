@@ -27,8 +27,13 @@ function IncidentReportContinuity(): React.JSX.Element {
     navigation.goBack();
   };
 
-  const handlePressNatureService = () => {
-    navigation.navigate('NatureService');
+  const handlePressNatureService = async () => {
+    const option = await AsyncStorage.getItem('selectedOption');
+    if (option === 'Obstétrica') {
+      navigation.navigate('GestationalHistory');
+    } else {
+      navigation.navigate('NatureService');
+    }
   };
 
   const saveData = async () => {
